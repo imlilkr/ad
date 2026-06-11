@@ -174,8 +174,9 @@ console.log(payload.photo2);
       const error =
         document.getElementById("aadhaarDuplicateError");
 
-      error.innerText = res.message;
-      error.style.display = "block";
+    
+
+      showErrorPopup(res.message);
 
       submitBtn.disabled = false;
 processingOverlay.style.display = "none";
@@ -201,8 +202,10 @@ processingOverlay.style.display = "none";
     submitBtn.disabled = false;
 processingOverlay.style.display = "none";
 
-alert(res.message || "Submission failed");
-
+showErrorPopup(
+    res.message ||
+    "Form submission failed. Kindly check the errors and try again."
+);
   })
   .catch(err => {
 
@@ -210,7 +213,9 @@ alert(res.message || "Submission failed");
     processingOverlay.style.display = "none";
 
     console.error(err);
-    alert("Submission failed");
+   showErrorPopup(
+    "Form submission failed. Kindly check your internet connection and try again."
+);
 
 });
 
@@ -336,4 +341,17 @@ function removeImage(index) {
     uploadedFiles.splice(index, 1);
 
     renderPreviews();
+}
+
+
+function showErrorPopup(message) {
+
+    document.getElementById("errorMessage").innerText = message;
+
+    document.getElementById("errorPopup").style.display = "flex";
+}
+
+function closeErrorPopup() {
+
+    document.getElementById("errorPopup").style.display = "none";
 }
