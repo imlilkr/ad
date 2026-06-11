@@ -238,18 +238,27 @@ document.getElementById("aadhaar").addEventListener("input", function () {
 
 });
 
+
+
 const aadhaar = document.getElementById("aadhaar");
 
-if (aadhaar.value.length !== 12) {
+aadhaar.addEventListener("input", function () {
 
-    document.getElementById("aadhaarError").innerText =
-      "Aadhaar number must contain exactly 12 digits";
+    if (this.value.length !== 12) {
 
-    document.getElementById("aadhaarError").style.display =
-      "block";
+        document.getElementById("aadhaarError").innerText =
+            "Aadhaar number must contain exactly 12 digits";
 
-    return;
-}
+        document.getElementById("aadhaarError").style.display =
+            "block";
+
+    } else {
+
+        document.getElementById("aadhaarError").style.display =
+            "none";
+    }
+
+});
 
 
 
