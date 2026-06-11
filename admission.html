@@ -184,7 +184,9 @@
         <label>Aadhaar No.</label>
         <input type="text" name="aadhaar" class="form-control" maxlength="12" pattern="[0-9]{12}" id="aadhaar"  oninput="this.value=this.value.replace(/[^0-9]/g,'')"
     title="Aadhaar number must contain exactly 12 digits" required>
-   
+
+      <small id="aadhaarError" style="display:none;color:red;">
+</small>
         <small id="aadhaarDuplicateError"
        style="display:none;color:red;">
       </small>
