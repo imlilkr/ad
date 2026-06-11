@@ -1,4 +1,4 @@
-<script>
+
 window.onload = function () {
 
     const checkbox = document.getElementById("sameAddress");
@@ -14,9 +14,8 @@ window.onload = function () {
     });
 
 };
-</script>
 
-<script>
+
 function previewImage(input, previewId) {
     const preview = document.getElementById(previewId);
 
@@ -48,14 +47,12 @@ if (thumb) {
 
 
 
-</script>
 
 
 
 
    
 
-<script>
 
 document.getElementById("admissionForm").addEventListener("submit", async function (e) {
 
@@ -241,8 +238,6 @@ document.getElementById("aadhaar").addEventListener("input", function () {
 
 });
 
-</script>
-<script>
 const aadhaar = document.getElementById("aadhaar");
 
 if (aadhaar.value.length !== 12) {
@@ -256,9 +251,9 @@ if (aadhaar.value.length !== 12) {
     return;
 }
 
-</script>
 
-<script>
+
+
 let uploadedFiles = [];
 
 document.getElementById("photoUpload2")
@@ -336,4 +331,3 @@ function removeImage(index) {
 
     renderPreviews();
 }
-</script>
