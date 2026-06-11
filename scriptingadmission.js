@@ -246,16 +246,13 @@ aadhaar.addEventListener("input", function () {
 
     if (this.value.length !== 12) {
 
-        document.getElementById("aadhaarError").innerText =
-            "Aadhaar number must contain exactly 12 digits";
+        document.getElementById("aadhaarError").innerText ="Aadhaar number must contain exactly 12 digits";
 
-        document.getElementById("aadhaarError").style.display =
-            "block";
+        document.getElementById("aadhaarError").style.display ="block";
 
     } else {
 
-        document.getElementById("aadhaarError").style.display =
-            "none";
+        document.getElementById("aadhaarError").style.display ="none";
     }
 
 });
