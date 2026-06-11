@@ -1,3 +1,64 @@
+html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: url('caaimage/header7.jpg') no-repeat center center fixed;
+      background-size: cover;
+
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    header {
+      background: rgba(245, 245, 245, 0.6);
+      color: white;
+      text-align: center;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      font-weight: 900;
+    }
+
+    .section {
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .section1 {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .section3 {
+      border-radius: 10px;
+      background: rgba(158, 178, 203, 0.2);
+    }
+
+    footer {
+      background: rgba(245, 245, 245, 0.6);
+      color: black;
+      text-align: center;
+    }
+
 .form-container{
         max-width:900px;
         margin:auto;
