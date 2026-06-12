@@ -39,10 +39,28 @@
 
   <form id="admissionForm" enctype="multipart/form-data">
  
-    <div class="form-group">
-        <label>Course Applied For:</label>
-        <input name="CourseApplied" type="text" class="form-control" >
-    </div>
+  
+  <div class="form-group">
+    <label>Course Applied For:</label>
+
+    <select name="CourseApplied" class="form-control" required>
+        <option value="">-- Select Course --</option>
+
+        <option value="CAA">CAA</option>
+        <option value="CDEOA">CDEOA</option>
+        <option value="EDEOA">EDEOA</option>
+        <option value="CCC">CCC</option>
+        <option value="O-Level">O-Level</option>
+        <option value="AI">AI</option>
+        <option value="2026-Summer Internship: Photoshop">
+            2026-Summer Internship: Photoshop
+        </option>
+        <option value="2026-Summer Internship: Full Stack Development">
+            2026-Summer Internship: Full Stack Development
+        </option>
+        <option value="Cyber Security">Cyber Security</option>
+    </select>
+</div>
     <div class="form-group">
         <label>Full Name</label>
         <input name="fullName" type="text" class="form-control" >
