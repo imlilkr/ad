@@ -118,6 +118,7 @@ const photo2 = await Promise.all(
 
 
   const payload = {
+    CourseApplied: this.CourseApplied.value,
     fullName: this.fullName.value,
     fatherName: this.fatherName.value,
     motherName: this.motherName.value,
