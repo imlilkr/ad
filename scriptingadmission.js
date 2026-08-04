@@ -185,8 +185,7 @@ return;
     }
 
     // SUCCESS
-    console.log(res);
-    console.log(res.status);
+  
     if (res.status === "success") {
 
       alert("Form submitted successfully!");
