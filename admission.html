@@ -1,349 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website with Background Image</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://imlilkr.github.io/ad/adcss.css">
-  
-  </head>
-  <body class="text-xs md:text-sm lg:text-base" >
 
-    
+</head>
+
+<body class="text-sm md:text-sm lg:text-base">
+
+
     <main>
-      <header class="p-2.5 md:px-5 md:py-2.5">
-        <div class="logo-title">
-          <img src="https://imlilkr.github.io/caa/caaimage/chuchuyimlang_logo.png" alt="Logo" class="h-[60px] md:h-[60px] lg:h-[60px]" loading="lazy">
-        </div>
-      </header>
+        <header class="p-2.5 md:px-5 md:py-2.5">
+            <div class="logo-title">
+                <img src="https://imlilkr.github.io/caa/caaimage/chuchuyimlang_logo.png" alt="Logo" class="h-12 md:h-16 lg:h-20 w-auto" loading="lazy">
+            </div>
+        </header>
 
-      <div class="banner h-[50px] md:h-[60px] lg:h-[70px] text-base md:text-xl lg:text-[2.5rem]"> </div>
-      
-     <div class="section p-[30px] px-5 mx-5 mb-10 md:p-12 md:px-8 md:mx-6 md:mb-8 lg:p-[40px] lg:px-10 lg:mx-10 lg:mb-12" id="olevel">
-        <!--<h2 class="section3 p-2.5 mx-auto mb-8 w-full md:w-[40%] lg:w-[30%] text-center text-sm md:text-lg lg:text-xl">
-          <b>Topic Names</b>
-        </h2>-->
-    
-
-  <div style="text-align:center;">
-    <div class="w-fit max-w-full text-center mx-auto mb-8 px-4 py-3
+        <!--Main-->
+        <div class="section p-[30px] px-5 mx-5 md:p-12 md:px-8 md:mx-6 lg:p-[40px] lg:px-10 lg:mx-10" id="olevel">
+                <div class="w-fit max-w-full text-center mx-auto mb-8 px-4 py-3
             bg-gradient-to-r from-[#1f3b57] to-[#4f8cc9]
             text-white font-bold uppercase tracking-wider
             rounded-xl shadow-lg
-            text-[14px] sm:text-[18px] md:text-[19px] lg:text-[22px]
+            text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]
             leading-snug break-words">
-    APPLICATION FORM FOR ADMISSION
-</div>
-</div>
-
-  <form id="admissionForm" enctype="multipart/form-data">
- 
-  
-  <div class="form-group">
-    <label>Course Applied For:</label>
-
-    <select name="CourseApplied" class="form-control" required>
-        <option value="">-- Select Course --</option>
-
-        <option value="CAA">CAA</option>
-        <option value="CDEOA">CDEOA</option>
-        <option value="EDEOA">EDEOA</option>
-        <option value="CCC">CCC</option>
-        <option value="O-Level">O-Level</option>
-        <option value="AI">AI</option>
-        <option value="2026-Summer Internship: Photoshop">
-            2026-Summer Internship: Photoshop
-        </option>
-        <option value="2026-Summer Internship: Full Stack Development">
-            2026-Summer Internship: Full Stack Development
-        </option>
-        <option value="Cyber Security">Cyber Security</option>
-    </select>
-</div>
-    <div class="form-group">
-        <label>Full Name</label>
-        <input name="fullName" type="text" class="form-control" >
-    </div>
-
-    <div class="grid-2">
-        <div class="form-group">
-            <label>Father's Name</label>
-            <input name="fatherName" type="text" class="form-control" >
-        </div>
-
-        <div class="form-group">
-            <label>Mother's Name</label>
-            <input name="motherName" type="text" class="form-control" >
-        </div>
-    </div>
-
-    <div class="section-title">Correspondence Address</div>
-
-    <div class="form-group">
-        <label>Street / Road / Lane</label>
-        <input name="Street" type="text" class="form-control" >
-    </div>
-
-    <div class="form-group">
-        <label>Area / Locality / Road</label>
-        <input type="text" name="Area" class="form-control" >
-    </div>
-
-    <div class="grid-2">
-        <div class="form-group">
-            <label>Village / Town / City</label>
-            <input name="Village" type="text" class="form-control" >
-        </div>
-
-        <div class="form-group">
-            <label>District</label>
-            <input type="text" name="District" class="form-control" >
-        </div>
-    </div>
-
-    <div class="grid-2">
-        <div class="form-group">
-            <label>Pincode</label>
-            <input type="text" name="Pincode" class="form-control" >
-        </div>
-
-        <div class="form-group">
-            <label>Mobile No.</label>
-            <input type="text" name="MobileNo" class="form-control" >
-        </div>
-    </div>
-
-   <div class="section-title">Permanent Address</div>
-
-<div class="checkbox-group">
-    <label>
-        <input type="checkbox" id="sameAddress">
-        Same as Correspondence Address
-    </label>
-</div>
-<div id="permanentAddressFields" style="display:none;">
-
-    <div class="form-group">
-        <label>Street / Road / Lane</label>
-        <input type="text" name="Street1" class="form-control" >
-    </div>
-
-    <div class="form-group">
-        <label>Area / Locality / Road</label>
-        <input type="text" name="Area1" class="form-control" >
-    </div>
-
-    <div class="grid-2">
-        <div class="form-group">
-            <label>Village / Town / City</label>
-            <input type="text" name="Village1" class="form-control" >
-        </div>
-
-        <div class="form-group">
-            <label>District</label>
-            <input type="text" name="District1" class="form-control" >
-        </div>
-    </div>
-
-    <div class="grid-2">
-        <div class="form-group">
-            <label>Pincode</label>
-            <input type="text" name="Pincode1" class="form-control" >
-        </div>
-
-        <div class="form-group">
-            <label>Mobile No.</label>
-            <input type="tel" name="MobileNo1" class="form-control" >
-        </div>
-    </div>
-
-</div>
-
-
-
-    <!-- Address fields here -->
-
-    <div class="section-title">Other Information</div>
-
-    <div class="grid-2">
-        <div class="form-group">
-            <label>Date of Birth</label>
-            <input type="date" name="DateofBirth" class="form-control" >
-        </div>
-
-        <div class="form-group">
-            <label>Email Address</label>
-            <input type="email"name="email" class="form-control">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label>Gender</label>
-        <div class="radio-group">
-            <label><input type="radio" name="gender" value="Male"> Male</label>
-            <label><input type="radio" name="gender" value="Female"> Female</label>
-            <label><input type="radio" name="gender" value="Transgender"> Transgender</label>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label>Category</label>
-        <div class="radio-group">
-            <label><input type="radio" name="category" value="ST"> ST</label>
-            <label><input type="radio" name="category" value="OBC"> OBC</label>
-            <label><input type="radio" name="category" value="MIN"> MIN</label>
-            <label><input type="radio" name="category" value="GEN"> GEN</label>
-            <label><input type="radio" name="category" value="SC"> SC</label>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label>Aadhaar No.</label>
-        <input type="text" name="aadhaar" class="form-control" maxlength="12" pattern="[0-9]{12}" id="aadhaar"  oninput="this.value=this.value.replace(/[^0-9]/g,'')"
-    title="Aadhaar number must contain exactly 12 digits" required>
-
-      <small id="aadhaarError" style="display:none;color:red;">
-</small>
-        <small id="aadhaarDuplicateError"
-       style="display:none;color:red;">
-      </small>
-    </div>
-
-    <div class="section-title">Educational Qualification</div>
-
-    <div class="form-group">
-        <textarea class="form-control" rows="4" name="qualification"></textarea>
-    </div>
-
-
-<div class="section-title">Documents</div>
-
-<div class="grid-2">
-
-    <div class="form-group">
-        <label>1. Upload Signature:</label><br>
-        <input type="file" name="photoUpload"
-               id="photoUpload"
-               class="form-control"
-               accept="image/*"
-               >
-
-        <img id="photoPreview"
-             style="display:none;margin-top:10px;width:120px;height:150px;border:1px solid #ccc;object-fit:cover;">
-    </div>
-</div>
-
-<div class="grid-2">
-
-    <div class="form-group">
-        <label>2.  Upload Thumb Impression:</label><br>
-        <input type="file" name="thumbUpload"
-               id="thumbUpload"
-               class="form-control"
-               accept="image/*"
-               >
-
-        <img id="thumbPreview"
-             style="display:none;margin-top:10px;width:120px;height:120px;border:1px solid #ccc;object-fit:cover;">
-    </div>
-    <!-- <div class="form-group">
-        <label>Upload</label>
-        <input type="file"
-       name="photoUpload2"
-       id="photoUpload2"
-       class="form-control"
-       accept="image/*"
-       multiple>
-
-        <img id="photoPreview"
-             style="display:none;margin-top:10px;width:120px;height:150px;border:1px solid #ccc;object-fit:cover;">
-    </div>-->
-    </div>
-
-    <div class="grid-2">
-    <div class="form-group">
-    <label> 3. Upload the below Details: 
-     
-    </label><br>
-
-    <input type="file"
-           name="photoUpload2"
-           id="photoUpload2"
-           class="form-control"
-           accept="image/*"
-           multiple>
-
-    <div id="photoPreviewContainer"
-         style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;">
-    </div>
-    
-      <ul style="margin-left:20px; line-height:1.8;font-weight: 150;">
-    <li>✓ Aadhaar Card (mandatory)</li>
-    <li>✓ ST Certificate (if applicable)</li>
-    <li>✓ Class 10 or 12 Marksheet/Admit Card/Pass certificate</li>
-    <li>✓ Passport Size Photograph (mandatory)</li>
-    <li>✓ APAAR ID Card (Required for Examination)</li>
-</ul>
-    </label>
-</div>
- 
-  
-  
-  
-  </div>
-    <button type="submit" class="btn-submit"  id="submitBtn">
-        SUBMIT APPLICATION
-    </button>
-  </form>
-</div>
-   
-      </div>
-   
-        
-          <!-- 
-           <div class="bg-gray-500/20 text-black p-4 rounded-lg shadow-md">
-    <h2 class="font-bold mb-2 text-center text-sm sm:text-base md:Text-base">OTHERs</h2>
-            <ul class="list-disc list-inside text-sm space-y-1">
-              <li>Assignment / Project: 30 Marks</li>
-              <li>Attendance: 20 Marks</li>
-              <li>Employment Theory: 100 Marks</li>
-            </ul>
-          </div>
-        </div><BR>-->
+                    APPLICATION FORM FOR ADMISSION
+                </div>
           
 
-      </div>
-      </div>
-      </div>
-      </div>
+            <form id="admissionForm">
+                <div class="form-group">
+                    <label><span style="color:red;">*</span>Course Applied For:</label>
+                    <select name="CourseApplied" class="form-control" required>
+                        <option value="">-- Select Course --</option>
+                        <option value="CAA">CAA</option>
+                        <option value="CDEOA">CDEOA</option>
+                        <option value="EDEOA">EDEOA</option>
+                        <option value="CCC">CCC</option>
+                        <option value="O-Level">O-Level</option>
+                        <option value="AI">AI</option>
+                        <option value="2026-Summer Internship: Photoshop">2026-Summer Internship: Photoshop</option>
+                        <option value="2026-Summer Internship: Full Stack Development">
+                            2026-Summer Internship: Full Stack Development
+                        </option>
+                        <option value="Cyber Security">Cyber Security</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><span style="color:red;">*</span> Full Name</label>
+                    <input name="fullName" type="text" class="form-control" required>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label><span style="color:red;">*</span> Father's Name</label>
+                        <input name="fatherName" type="text" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><span style="color:red;">*</span> Mother's Name</label>
+                        <input name="motherName" type="text" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="section-title">Correspondence Address</div>
+
+                <div class="form-group">
+                    <label><span style="color:red;">*</span> Street / Road / Lane</label>
+                    <input name="Street" type="text" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Area / Locality / Road</label>
+                    <input type="text" name="Area" class="form-control">
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>Village / Town / City</label>
+                        <input name="Village" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label><span style="color:red;">*</span> District</label>
+                        <input type="text" name="District" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label><span style="color:red;">*</span> Pincode</label>
+                        <input type="text" name="Pincode" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><span style="color:red;">*</span> Mobile No.</label>
+                        <input type="text" id="mobileNo" name="MobileNo" class="form-control" maxlength="10" pattern="[0-9]{10}" inputmode="numeric" required>
+                        <small id="mobileNoError" style="display:none;color:red;"></small>
+                    </div>
+                </div>
+
+                <div class="section-title">Permanent Address</div>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="sameAddress"> Same as Correspondence Address
+                    </label>
+                </div>
+                <div id="permanentAddressFields" style="display:none;">
+
+                    <div class="form-group">
+                        <label>Street / Road / Lane</label>
+                        <input type="text" name="Street1" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Area / Locality / Road</label>
+                        <input type="text" name="Area1" class="form-control">
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Village / Town / City</label>
+                            <input type="text" name="Village1" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>District</label>
+                            <input type="text" name="District1" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Pincode</label>
+                            <input type="text" name="Pincode1" class="form-control">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Address fields here -->
+
+                <div class="section-title">Other Information</div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label><span style="color:red;">*</span> Date of Birth</label>
+                        <input type="date" name="DateofBirth" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span style="color:red;">*</span> Gender</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="gender" value="Male" required> Male</label>
+                        <label>
+                            <input type="radio" name="gender" value="Female"> Female</label>
+                        <label>
+                            <input type="radio" name="gender" value="Transgender"> Transgender</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span style="color:red;">*</span> Category</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="category" value="ST" required> ST</label>
+                        <label>
+                            <input type="radio" name="category" value="OBC"> OBC</label>
+                        <label>
+                            <input type="radio" name="category" value="MIN"> MIN</label>
+                        <label>
+                            <input type="radio" name="category" value="GEN"> GEN</label>
+                        <label>
+                            <input type="radio" name="category" value="SC"> SC</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span style="color:red;">*</span> Aadhaar No.</label>
+                    <input type="text" name="aadhaar" class="form-control" maxlength="12" pattern="[0-9]{12}" id="aadhaar" oninput="this.value=this.value.replace(/[^0-9]/g,'')" title="Aadhaar number must contain exactly 12 digits" required>
+
+                    <small id="aadhaarError" style="display:none;color:red;">
+</small>
+                    <small id="aadhaarDuplicateError" style="display:none;color:red;">
+      </small>
+                </div>
+
+                <div class="section-title"><span style="color:red;">*</span> Educational Qualification</div>
+
+                <div class="form-group">
+                    <textarea class="form-control" rows="4" name="qualification" required></textarea>
+                </div>
+
+
+                <div class="section-title"><span style="color:red;">*</span> Documents</div>
+
+                <div class="grid-2">
+
+                    <div class="form-group">
+                        <label>1. Upload Signature:</label>
+                        <br>
+                        <input type="file" name="photoUpload" id="photoUpload" class="form-control" accept="image/*">
+                        <!--photo preview-->
+                        <img id="photoPreview" style="display:none;margin-top:10px;width:120px;height:150px;border:1px solid #ccc;object-fit:cover;">
+                    </div>
+                </div>
+
+                <div class="grid-2">
+
+                    <div class="form-group">
+                        <label>2. Upload Thumb Impression:</label>
+                        <br>
+                        <input type="file" name="thumbUpload" id="thumbUpload" class="form-control" accept="image/*">
+
+                        <img id="thumbPreview" style="display:none;margin-top:10px;width:120px;height:120px;border:1px solid #ccc;object-fit:cover;">
+                    </div>
+           
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label> 3. Upload the below Details:
+
+                        </label>
+                        <br>
+
+                        <input type="file" name="photoUpload2" id="photoUpload2" class="form-control" accept="image/*" multiple>
+
+                        <div id="photoPreviewContainer" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;">
+                        </div>
+
+                        <ul style="margin-left:20px; line-height:1.8;font-weight: 150;">
+                            <li>✓ Aadhaar Card (mandatory)</li>
+                            <li>✓ ST Certificate (if applicable)</li>
+                            <li>✓ Class 10 or 12 Marksheet/Admit Card/Pass certificate</li>
+                            <li>✓ Passport Size Photograph (mandatory)</li>
+                            <li>✓ APAAR ID Card (Required for Examination)</li>
+                            
+                        </ul>
+                        </label>
+                    </div>
+
+
+
+
+                </div>
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    SUBMIT APPLICATION
+                </button>
+            </form>
+        </div>
+
+        </div>
+
+
+        </div>
+        </div>
+        </div>
+        </div>
     </main>
-<footer class="p-5 md:p-6 lg:p-7 font-bold text-sm">
-    &copy;2026nielitchuchuyimlang. All rights reserved.
-</footer>    </div>
-    
-<div id="processingOverlay" class="processing-overlay">
-    <div class="processing-box">
-        <div class="spinner"></div>
-        <p>Processing... Please wait</p>
+    <footer class="p-4 md:p-5 lg:p-6 font-bold text-xs md:sm">
+        &copy;2026nielitchuchuyimlang. All rights reserved.
+    </footer>
     </div>
-</div>
 
-    
-<div id="errorPopup" class="processing-overlay" style="display:none;">
-    <div class="processing-box">
-        <h3 style="color:red;">Form Submission Failed</h3>
-        <p id="errorMessage">
-            Kindly check the errors and try again.
-        </p>
-
-        <button type="button"
-                onclick="closeErrorPopup()"
-                class="btn-submit">
-            OK
-        </button>
+    <div id="processingOverlay" class="processing-overlay">
+        <div class="processing-box">
+            <div class="spinner"></div>
+            <p>Processing... Please wait</p>
+        </div>
     </div>
-</div>
-    <script src="https://imlilkr.github.io/ad/scriptingadmission.js"></script>
-  </body>
+
+
+    <div id="errorPopup" class="processing-overlay" style="display:none;">
+        <div class="processing-box">
+            <h3 style="color:red;">Form Submission Failed</h3>
+            <p id="errorMessage">
+                Kindly check the errors and try again.
+            </p>
+
+            <button type="button" onclick="closeErrorPopup()" class="btn-submit">
+                OK
+            </button>
+        </div>
+    </div>
+    <script src="scriptingadmission.js"></script>
+</body>
+
 </html>
