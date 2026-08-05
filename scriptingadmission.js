@@ -1,32 +1,26 @@
-
+//permanent address toggle // why chekcing only phone?
 window.onload = function () {
-
     const checkbox = document.getElementById("sameAddress");
     const permanentFields = document.getElementById("permanentAddressFields");
-
     // Initial state when page loads
     permanentFields.style.display = checkbox.checked ? "none" : "block";
-
     // Toggle on check/uncheck
     checkbox.addEventListener("change", function () {
         permanentFields.style.display =
             this.checked ? "none" : "block";
     });
-
 };
 
-
+// preview image function
 function previewImage(input, previewId) {
     const preview = document.getElementById(previewId);
 
-    if (input.files && input.files[0]) {
+    if (input.files[0]) {
         const reader = new FileReader();
-
         reader.onload = function(e) {
             preview.src = e.target.result;
             preview.style.display = "block";
         };
-
         reader.readAsDataURL(input.files[0]);
     }
 }
@@ -45,30 +39,87 @@ if (thumb) {
   });
 }
 
+let uploadedFiles = [];
 
+document.getElementById("photoUpload2")
+.addEventListener("change", function () {
 
+    const files = Array.from(this.files);
 
+    files.forEach(file => {
+        uploadedFiles.push(file);
+    });
+
+    renderPreviews();
+
+    this.value = "";
+});
+
+function renderPreviews() {
+
+    const container =
+        document.getElementById("photoPreviewContainer");
+    container.innerHTML = "";
+    uploadedFiles.forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const wrapper =
+                document.createElement("div");
+            wrapper.style.position = "relative";
+            wrapper.innerHTML = `
+                <img src="${e.target.result}"
+                     style="
+                        width:120px;
+                        height:150px;
+                        object-fit:cover;
+                        border:1px solid #ccc;
+                        border-radius:8px;
+                     ">
+
+                <button type="button"
+                        onclick="removeImage(${index})"
+                        style="
+                            position:absolute;
+                            top:-8px;
+                            right:-8px;
+                            width:24px;
+                            height:24px;
+                            border:none;
+                            border-radius:50%;
+                            background:red;
+                            color:white;
+                            cursor:pointer;
+                            font-weight:bold;
+                        ">
+                    ×
+                </button>
+            `;
+
+            container.appendChild(wrapper);
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+}
 
 
 
    
 
-
+//"Wait until the user submits the admission form."
 document.getElementById("admissionForm").addEventListener("submit", async function (e) {
-
-  e.preventDefault();
- //to show loading after submission
-
- const submitBtn = document.getElementById("submitBtn");
+e.preventDefault();
+const submitBtn = document.getElementById("submitBtn");
 const processingOverlay = document.getElementById("processingOverlay");
 
 submitBtn.disabled = true;
-
 processingOverlay.style.display = "flex";
 
-  // Hide old duplicate error
+  // Hide old duplicate error after fixing the invalid data//check other duplicate error as well?
   document.getElementById("aadhaarDuplicateError").style.display = "none";
 
+//Prepare all uploaded files so they can be sent to Google Apps Script.
   const photoInput = document.getElementById("photoUpload");
   const thumbInput = document.getElementById("thumbUpload");
   const photoInput2 = document.getElementById("photoUpload2");
@@ -78,23 +129,6 @@ processingOverlay.style.display = "flex";
   const photoFile2 = [...(photoInput2?.files || [])];
 
 
-  //const photo = photoFile ? await toBase64(photoFile) : "";
-  //const photo = photoFile ? {
-  //name: photoFile.name,
-  //data: await toBase64(photoFile)
-//} : "";
-  //const thumb = thumbFile ? await toBase64(thumbFile) : "";
-  //const thumb = thumbFile ? {
-  //name: thumbFile.name,
-  //data: await toBase64(thumbFile)
-//} : "";
-  //const photo2 = await Promise.all(
-  //photoFile2.map(file => toBase64(file))
-
-  //const photo2 = await Promise.all(
-  //uploadedFiles.map(file => toBase64(file))
-//);
-//);
 const photo = photoFile ? {
   name: photoFile.name,
   data: await toBase64(photoFile)
@@ -112,9 +146,9 @@ const photo2 = await Promise.all(
   }))
 );
 
-  console.log("PHOTO BASE64 EXISTS:", !!photo);
-  console.log("THUMB BASE64 EXISTS:", !!thumb);
-    console.log("photo2 BASE64 EXISTS:", !!photo2);
+console.log("PHOTO BASE64 EXISTS:", !!photo);
+console.log("THUMB BASE64 EXISTS:", !!thumb);
+console.log("photo2 BASE64 EXISTS:", !!photo2);
 
 
   const payload = {
@@ -135,7 +169,7 @@ const photo2 = await Promise.all(
     Village1: this.Village1.value,
     District1: this.District1.value,
     Pincode1: this.Pincode1.value,
-    MobileNo1: this.MobileNo1.value,
+    //MobileNo1: this.MobileNo1.value,
 
     DateofBirth: this.DateofBirth.value,
     email: this.email.value,
@@ -154,13 +188,12 @@ const photo2 = await Promise.all(
     photo2: photo2
   };
 
-  console.log("FULL PAYLOAD:");
+console.log("FULL PAYLOAD:");
 console.log(payload);
-
 console.log("PHOTO2:");
 console.log(payload.photo2);
 
-  fetch("https://script.google.com/macros/s/AKfycbxl7oVIgw1XFXs7fzOq0HyLOk7WjNslOfUOpImuaDHAuVH4z0n7z7WDSJbAm-_r4GcZ/exec", {
+  fetch("https://script.google.com/macros/s/AKfycby97FBMlOsVuaaD77YCq4b_2XOt98-W80ji9oOXxw4PSFNzALR5M4YVR6Pxit_aJ_6p/exec", {
     method: "POST",
     body: JSON.stringify(payload)
   })
@@ -171,14 +204,9 @@ console.log(payload.photo2);
 
     // DUPLICATE AADHAAR
     if (res.status === "duplicate") {
-
       const error =
         document.getElementById("aadhaarDuplicateError");
-
-    
-
       showErrorPopup(res.message);
-
       submitBtn.disabled = false;
 processingOverlay.style.display = "none";
 return;
@@ -187,16 +215,11 @@ return;
     // SUCCESS
   
     if (res.status === "success") {
-
       alert("Form submitted successfully!");
-
 submitBtn.disabled = false;
 processingOverlay.style.display = "none";
-
       document.getElementById("admissionForm").reset();
-
       document.getElementById("aadhaarDuplicateError").style.display = "none";
-
       return;
     }
 
@@ -240,7 +263,6 @@ function toBase64(file) {
 
 // Hide duplicate message when Aadhaar changes
 document.getElementById("aadhaar").addEventListener("input", function () {
-
   document.getElementById("aadhaarDuplicateError").style.display = "none";
 
 });
@@ -267,76 +289,9 @@ aadhaar.addEventListener("input", function () {
 
 
 
-let uploadedFiles = [];
 
-document.getElementById("photoUpload2")
-.addEventListener("change", function () {
 
-    const files = Array.from(this.files);
 
-    files.forEach(file => {
-        uploadedFiles.push(file);
-    });
-
-    renderPreviews();
-
-    this.value = "";
-});
-
-function renderPreviews() {
-
-    const container =
-        document.getElementById("photoPreviewContainer");
-
-    container.innerHTML = "";
-
-    uploadedFiles.forEach((file, index) => {
-
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-
-            const wrapper =
-                document.createElement("div");
-
-            wrapper.style.position = "relative";
-
-            wrapper.innerHTML = `
-                <img src="${e.target.result}"
-                     style="
-                        width:120px;
-                        height:150px;
-                        object-fit:cover;
-                        border:1px solid #ccc;
-                        border-radius:8px;
-                     ">
-
-                <button type="button"
-                        onclick="removeImage(${index})"
-                        style="
-                            position:absolute;
-                            top:-8px;
-                            right:-8px;
-                            width:24px;
-                            height:24px;
-                            border:none;
-                            border-radius:50%;
-                            background:red;
-                            color:white;
-                            cursor:pointer;
-                            font-weight:bold;
-                        ">
-                    ×
-                </button>
-            `;
-
-            container.appendChild(wrapper);
-        };
-
-        reader.readAsDataURL(file);
-
-    });
-}
 
 function removeImage(index) {
 
@@ -357,3 +312,29 @@ function closeErrorPopup() {
 
     document.getElementById("errorPopup").style.display = "none";
 }
+
+
+
+
+
+const mobileNo = document.getElementById("mobileNo");
+
+mobileNo.addEventListener("input", function () {
+
+    // Allow only digits
+    this.value = this.value.replace(/\D/g, "");
+
+    if (this.value.length !== 10) {
+
+        document.getElementById("mobileNoError").innerText =
+            "Mobile number must contain exactly 10 digits and no Aplpha numeric";
+
+        document.getElementById("mobileNoError").style.display = "block";
+
+    } else {
+
+        document.getElementById("mobileNoError").style.display = "none";
+
+    }
+
+});
