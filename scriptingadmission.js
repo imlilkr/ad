@@ -193,7 +193,7 @@ console.log(payload);
 console.log("PHOTO2:");
 console.log(payload.photo2);
 
-  fetch("https://script.google.com/macros/s/AKfycby97FBMlOsVuaaD77YCq4b_2XOt98-W80ji9oOXxw4PSFNzALR5M4YVR6Pxit_aJ_6p/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbxf0vZOmu4RPOrlwIHWMifbWLdWfmXPeCiCwY34aLh-vr7chZq6-lEBFUqQJEHHJFuV/exec", {
     method: "POST",
     body: JSON.stringify(payload)
   })
