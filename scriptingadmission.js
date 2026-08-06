@@ -11,19 +11,55 @@ window.onload = function () {
     });
 };
 
-// preview image function
 function previewImage(input, previewId) {
+
     const preview = document.getElementById(previewId);
 
-    if (input.files[0]) {
+    if (!input.files[0]) return;
+
+    const file = input.files[0];
+
+    // Allow only Images and PDF
+    if (
+        !file.type.startsWith("image/") &&
+        file.type !== "application/pdf"
+    ) {
+        alert("Only Image and PDF files are allowed.");
+        input.value = "";
+        preview.style.display = "none";
+        return;
+    }
+
+    // Maximum file size = 700 MB
+    const MAX_SIZE = 100 * 1024 * 1024;
+
+    if (file.size > MAX_SIZE) {
+        alert("File size must not exceed 100 MB.");
+        input.value = "";
+        preview.style.display = "none";
+        return;
+    }
+
+    // Preview only images
+    if (file.type.startsWith("image/")) {
+
         const reader = new FileReader();
-        reader.onload = function(e) {
+
+        reader.onload = function (e) {
             preview.src = e.target.result;
             preview.style.display = "block";
         };
-        reader.readAsDataURL(input.files[0]);
+
+        reader.readAsDataURL(file);
+
+    } else {
+        // PDF selected
+        preview.style.display = "none";
     }
 }
+
+
+
 
 const photo = document.getElementById("photoUpload");
 if (photo) {
@@ -39,6 +75,22 @@ if (thumb) {
   });
 }
 
+//let uploadedFiles = [];
+
+//document.getElementById("photoUpload2")
+//.addEventListener("change", function () {
+
+ //   const files = Array.from(this.files);
+
+//    files.forEach(file => {
+//        uploadedFiles.push(file);
+  //  });
+
+    //renderPreviews();
+
+    //this.value = "";
+//});
+
 let uploadedFiles = [];
 
 document.getElementById("photoUpload2")
@@ -46,14 +98,37 @@ document.getElementById("photoUpload2")
 
     const files = Array.from(this.files);
 
-    files.forEach(file => {
-        uploadedFiles.push(file);
-    });
+    const MAX_SIZE = 100 * 1024 * 1024; // 100 MB per file
+
+    // Validate all files first
+    for (const file of files) {
+
+        // Allow only Images and PDF
+        if (
+            !file.type.startsWith("image/") &&
+            file.type !== "application/pdf"
+        ) {
+            alert(file.name + "\nOnly Image and PDF files are allowed.");
+            this.value = "";
+            return;
+        }
+
+        // Check file size
+        if (file.size > MAX_SIZE) {
+            alert(file.name + "\nFile size must not exceed 100 MB.");
+            this.value = "";
+            return;
+        }
+    }
+
+    // If execution reaches here, ALL files are valid
+    uploadedFiles.push(...files);
 
     renderPreviews();
 
     this.value = "";
 });
+
 
 function renderPreviews() {
 
