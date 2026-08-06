@@ -89,7 +89,7 @@ if (thumb) {
     //renderPreviews();
 
     //this.value = "";
-//});
+//});//
 
 let uploadedFiles = [];
 
