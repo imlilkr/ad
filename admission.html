@@ -52,18 +52,18 @@
                 </div>
                 <div class="form-group">
                     <label><span style="color:red;">*</span> Full Name</label>
-                    <input name="fullName" type="text" class="form-control" required>
+                    <input name="fullName" type="text" class="form-control">
                 </div>
 
                 <div class="grid-2">
                     <div class="form-group">
                         <label><span style="color:red;">*</span> Father's Name</label>
-                        <input name="fatherName" type="text" class="form-control" required>
+                        <input name="fatherName" type="text" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label><span style="color:red;">*</span> Mother's Name</label>
-                        <input name="motherName" type="text" class="form-control" required>
+                        <input name="motherName" type="text" class="form-control">
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@
 
                 <div class="form-group">
                     <label><span style="color:red;">*</span> Street / Road / Lane</label>
-                    <input name="Street" type="text" class="form-control" required>
+                    <input name="Street" type="text" class="form-control">
                 </div>
 
                 <div class="form-group">
@@ -87,19 +87,19 @@
 
                     <div class="form-group">
                         <label><span style="color:red;">*</span> District</label>
-                        <input type="text" name="District" class="form-control" required>
+                        <input type="text" name="District" class="form-control">
                     </div>
                 </div>
 
                 <div class="grid-2">
                     <div class="form-group">
                         <label><span style="color:red;">*</span> Pincode</label>
-                        <input type="text" name="Pincode" class="form-control" required>
+                        <input type="text" name="Pincode" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label><span style="color:red;">*</span> Mobile No.</label>
-                        <input type="text" id="mobileNo" name="MobileNo" class="form-control" maxlength="10" pattern="[0-9]{10}" inputmode="numeric" required>
+                        <input type="text" id="mobileNo" name="MobileNo" class="form-control" maxlength="10" pattern="[0-9]{10}" inputmode="numeric">
                         <small id="mobileNoError" style="display:none;color:red;"></small>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                 <div class="grid-2">
                     <div class="form-group">
                         <label><span style="color:red;">*</span> Date of Birth</label>
-                        <input type="date" name="DateofBirth" class="form-control" required>
+                        <input type="date" name="DateofBirth" class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -167,7 +167,7 @@
                     <label><span style="color:red;">*</span> Gender</label>
                     <div class="radio-group">
                         <label>
-                            <input type="radio" name="gender" value="Male" required> Male</label>
+                            <input type="radio" name="gender" value="Male"> Male</label>
                         <label>
                             <input type="radio" name="gender" value="Female"> Female</label>
                         <label>
@@ -179,7 +179,7 @@
                     <label><span style="color:red;">*</span> Category</label>
                     <div class="radio-group">
                         <label>
-                            <input type="radio" name="category" value="ST" required> ST</label>
+                            <input type="radio" name="category" value="ST"> ST</label>
                         <label>
                             <input type="radio" name="category" value="OBC"> OBC</label>
                         <label>
@@ -204,7 +204,7 @@
                 <div class="section-title"><span style="color:red;">*</span> Educational Qualification</div>
 
                 <div class="form-group">
-                    <textarea class="form-control" rows="4" name="qualification" required></textarea>
+                    <textarea class="form-control" rows="4" name="qualification"></textarea>
                 </div>
 
 
@@ -215,7 +215,13 @@
                     <div class="form-group">
                         <label>1. Upload Signature:</label>
                         <br>
-                        <input type="file" name="photoUpload" id="photoUpload" class="form-control" accept="image/*">
+                        <input
+            type="file"
+            name="photoUpload"
+            id="photoUpload"
+            class="form-control"
+            accept=".jpg,.jpeg,.png,.pdf"
+            >
                          <small style="color:#666;">
             Only JPG, JPEG, PNG and PDF files are allowed of 100 MB.
         </small>
@@ -229,7 +235,13 @@
                     <div class="form-group">
                         <label>2. Upload Thumb Impression:</label>
                         <br>
-                        <input type="file" name="thumbUpload" id="thumbUpload" class="form-control" accept="image/*">
+                        <input
+            type="file"
+            name="thumbUpload"
+            id="thumbUpload"
+            class="form-control"
+            accept=".jpg,.jpeg,.png,.pdf"
+            >
  <small style="color:#666;">
             Only JPG, JPEG, PNG and PDF files are allowed of 100 MB.
         </small>
@@ -248,8 +260,14 @@
         </small>
                         <br>
 
-                        <input type="file" name="photoUpload2" id="photoUpload2" class="form-control" accept="image/*" multiple>
-
+                         <input
+            type="file"
+            name="photoUpload2"
+            id="photoUpload2"
+            class="form-control"
+            accept=".jpg,.jpeg,.png,.pdf"
+            multiple >
+                         
                         <div id="photoPreviewContainer" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;">
                         </div>
 
@@ -307,6 +325,7 @@
             </button>
         </div>
     </div>
+   
     <script src="https://github.com/imlilkr/ad/blob/main/scriptingadmission.js"></script>
 </body>
 
